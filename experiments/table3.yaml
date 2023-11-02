@@ -1,0 +1,63 @@
+method: grid
+metric:
+  goal: minimize
+  name: Val loss
+name: table3
+parameters:
+  activation_fn:
+    value: full_glu
+  bsz:
+    value: 100
+  cosine_anneal:
+    value: true
+  d_hidden:
+    value: 128
+  d_model:
+    value: 294
+  dataset:
+    value: cifar-classification
+  early_stop_patience:
+    value: 30
+  epochs:
+    value: 180
+  jax_seed:
+    values:
+      - 0
+      - 1
+  layer_cls:
+    value: RNN
+  lr_base:
+    values:
+      - 0.001
+      - 0.004
+  lr_factor:
+    value: 0.5
+  mode:
+    value: pool_st
+  n_layers:
+    value: 4
+  n_accumulation_steps:
+    value: 1
+  opt_config:
+    value: standard
+  p_dropout:
+    value: 0.1
+  r_min:
+    value: 0
+  rnn_activation_fn:
+    value: linear
+  rnn_scaling_hidden:
+    value: 2
+  training_mode:
+    values:
+      - online_spatial
+      - online_1truncated
+      - bptt
+      # - online_snap1 requires n_accumulation_steps=20 instead of 1
+  warmup_end:
+    value: 18
+  weight_decay:
+    values:
+      - 0.1
+      - 0.2
+program: run_train.py

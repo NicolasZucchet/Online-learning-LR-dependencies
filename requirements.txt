@@ -1,0 +1,10 @@
+chex==0.1.5
+einops
+flax==0.7.1
+jax==0.4.19
+tensorflow-datasets==4.5.2
+pydub==0.25.1
+datasets
+torch==2.1.0+cpu
+tqdm
+wandb

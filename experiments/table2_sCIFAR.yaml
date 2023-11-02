@@ -1,0 +1,61 @@
+method: grid
+metric:
+  goal: minimize
+  name: Val loss
+name: table2_sCIFAR
+parameters:
+  activation_fn:
+    value: full_glu
+  bsz:
+    value: 100
+  cosine_anneal:
+    value: true
+  d_hidden:
+    value: 128
+  d_model:
+    value: 256
+  dataset:
+    value: cifar-classification
+  early_stop_patience:
+    value: 30
+  epochs:
+    value: 180
+  jax_seed:
+    values:
+      - 1033
+      - 1032
+  layer_cls:
+    value: LRU
+  lr_base:
+    values:
+      - 0.001
+      - 0.004
+  lr_factor:
+    value: 0.5
+  mode:
+    value: pool_st
+  n_accumulation_steps:
+    value: 1
+  n_layers:
+    value: 4
+  opt_config:
+    value: Bfast_and_decay
+  p_dropout:
+    value: 0.1
+  r_max:
+    value: 0.999
+  r_min:
+    value: 0.9
+  training_mode:
+    values:
+      - bptt
+      - online_spatial
+      - online_1truncated
+      # - online_full  requires n_accumulation_steps=20 instead of 1
+  warmup_end:
+    value: 18
+  weight_decay:
+    values:
+      - 0.1
+      - 0.5
+program: run_train.py

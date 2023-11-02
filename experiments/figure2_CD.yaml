@@ -1,0 +1,64 @@
+method: grid
+name: figure2_CD
+metric:
+  name: Val loss
+  goal: minimize
+parameters:
+  dataset:
+    value: copy-pad-classification
+  copy_pattern_length:
+    value: 20
+  copy_train_samples:
+    value: 20000
+  log_n_batches:
+    value: 100
+  jax_seed:
+    values:
+      - 201
+      - 202
+      - 203
+      - 204
+      - 205
+      - 206
+      - 207
+      - 208
+      - 209
+      - 210
+  bsz:
+    value: 50
+  training_mode:
+    value: online_full
+  layer_cls:
+    value: LRU
+  activation_fn:
+    value: full_glu
+  d_model:
+    value: 128
+  d_hidden:
+    value: 64
+  n_layers:
+    value: 4
+  epochs:
+    value: 25
+  lr_base:
+    value: 0.001
+  cosine_anneal:
+    value: True
+  warmup_end:
+    value: 0
+  r_min:
+    values: 
+      - 0.
+      - 0.5
+      - 0.75
+      - 0.9
+  lr_factor:
+    value: 0.5
+  mode:
+    value: none
+  p_dropout:
+    value: 0.1
+  weight_decay:
+    value: 0.05
+program: run_train.py
+

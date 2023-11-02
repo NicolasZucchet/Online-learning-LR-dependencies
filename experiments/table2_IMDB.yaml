@@ -1,0 +1,61 @@
+method: grid
+metric:
+  goal: minimize
+  name: Val loss
+name: table2_IMDB
+parameters:
+  activation_fn:
+    value: full_glu
+  advanced_log:
+    value: false
+  bsz:
+    value: 32
+  cosine_anneal:
+    value: true
+  d_hidden:
+    value: 64
+  d_model:
+    value: 64
+  dataset:
+    value: imdb-classification
+  epochs:
+    value: 35
+  jax_seed:
+    values:
+      - 0
+      - 1
+  layer_cls:
+    value: LRU
+  log_loss_every:
+    value: 0
+  lr_base:
+    values:
+      - 0.001
+      - 0.003
+  lr_factor:
+    value: 0.5
+  mode:
+    value: pool_st
+  n_accumulation_steps:
+    value: 1
+  n_layers:
+    value: 4
+  opt_config:
+    value: Bfast_and_decay
+  p_dropout:
+    value: 0.1
+  r_min:
+    values:
+      - 0
+      - 0.9
+  training_mode:
+    values:
+      - bptt
+      - online_spatial
+      - online_1truncated
+      # - online_full  requires n_accumulation_steps=32 instead of 1
+  warmup_end:
+    value: 0
+  weight_decay:
+    value: 0.05
+program: run_train.py

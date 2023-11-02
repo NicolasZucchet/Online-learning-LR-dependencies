@@ -1,0 +1,69 @@
+method: grid
+metric:
+  goal: minimize
+  name: Val loss
+name: figure2_EF_scan
+parameters:
+  activation_fn:
+    value: full_glu
+  bsz:
+    value: 50
+  copy_pattern_length:
+    value: 20
+  copy_train_samples:
+    value: 20000
+  cosine_anneal:
+    value: true
+  d_hidden:
+    value: 64
+  d_model:
+    value: 128
+  dataset:
+    value: copy-pad-classification
+  early_stop_patience:
+    value: 200
+  epochs:
+    value: 25
+  jax_seed:
+    values:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+  layer_cls:
+    value: LRU
+  log_n_batches:
+    value: 100
+  lr_base:
+    values:
+      - 0.000125
+      - 0.00025
+      - 0.0005
+      - 0.001
+      - 0.002
+      - 0.004
+      - 0.008
+  lr_factor:
+    value: 0.5
+  mode:
+    value: none
+  n_layers:
+    value: 4
+  p_dropout:
+    value: 0.1
+  r_min:
+    value: 0
+  rnn_activation_fn:
+    value: tanh
+  training_mode:
+    values:
+      - bptt
+      - online_full
+      - online_1truncated
+      - online_spatial
+  warmup_end:
+    value: 0
+  weight_decay:
+    value: 0
+program: run_train.py

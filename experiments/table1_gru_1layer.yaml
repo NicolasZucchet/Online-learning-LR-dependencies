@@ -1,0 +1,68 @@
+method: grid
+metric:
+  goal: minimize
+  name: Val loss
+name: table1_gru_1layer
+parameters:
+  activation_fn:
+    value: none
+  advanced_log:
+    value: false
+  bsz:
+    value: 50
+  copy_pattern_length:
+    value: 20
+  copy_train_samples:
+    value: 20000
+  cosine_anneal:
+    value: true
+  d_hidden:
+    value: 134
+  d_model:
+    value: 134
+  dataset:
+    value: copy-pad-classification
+  epochs:
+    value: 25
+  jax_seed:
+    values:
+      - 201
+      - 202
+      - 203
+  layer_cls:
+    value: GRU
+  lr_base:
+    values:
+      - 0.001
+      - 0.002
+      - 0.004
+      - 0.008
+      - 0.016
+      - 0.032
+  lr_factor:
+    value: 1
+  mode:
+    value: none
+  n_accumulation_steps:
+    value: 1
+  n_layers:
+    value: 1
+  opt_config:
+    value: standard
+  p_dropout:
+    value: 0.1
+  r_min:
+    value: 0
+  readout:
+    value: 1072
+  training_mode:
+    values:
+      - bptt
+      - online_1truncated
+      - online_spatial
+      - online_snap1
+  warmup_end:
+    value: 0
+  weight_decay:
+    value: 0
+program: run_train.py
