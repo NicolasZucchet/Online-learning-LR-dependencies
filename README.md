@@ -1,4 +1,4 @@
-# Online-learning-of-long-range-dependencies
+# Online learning of long-range dependencies
 
 This is the code base that acompanies the paper:
 > **Online learning of long-range dependencies** \
